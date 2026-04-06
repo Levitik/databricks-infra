@@ -4,7 +4,11 @@ terraform {
       source = "hashicorp/azurerm"
     }
     databricks = {
-      source = "databricks/databricks"
+      source                = "databricks/databricks"
+      configuration_aliases = [databricks.account]
+    }
+    azuread = {
+      source = "hashicorp/azuread"
     }
   }
 }

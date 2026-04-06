@@ -1,0 +1,79 @@
+# # https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/privileges
+# entraid_groups:
+#   - names: ITDATAPLATORM
+#     uc_permissions:
+#       - ADMINDB.OPERATOR # mean ITDATAPLATFORM group has read and write access to all schema in ADMINDB catalog
+#       - ITDB.OPERATOR # all the operator will be defined as exactly what we have in snowflake
+#       - CRMDB.OPERATOR # if the dot (.) do not works, use underscore (_)
+#       - MDMDB.OPERATOR # operator here mean: usage on catalog, usage on all schema in the catalog (including the future schema)
+#       - BRONZE.OPERATOR # and fine-grained privilege on each asset in each schema
+#       - GOLD.OPERATOR
+#       - SILVER.OPERATOR
+#     access_control:
+#       dev:
+#         - permission_level: CAN_EDIT
+#           object_type: directories
+#         - permission_level: CAN_ATTACH_TO
+#           object_type: clusters
+#         - permission_level: CAN_MANAGE
+#           object_type: jobs
+#       uat:
+#         - permission_level: CAN_EDIT
+#           object_type: directories
+#         - permission_level: CAN_READ
+#           object_type: clusters
+#         - permission_level: CAN_VIEW
+#           object_type: jobs
+#       prd:
+#         - permission_level: CAN_READ
+#           object_type: directories
+#         - permission_level: CAN_READ
+#           object_type: clusters
+#         - permission_level: CAN_VIEW
+#           object_type: jobs
+#     foreign_catalogs:
+#       # in this example Foreign catalo is created on three db: Yoozdb, insightdb and datahub
+#       - YOOZDB # mean ITDATAPLATFORM group has read only access to all schema in YOOZDB catalog
+#       - INSIGHTDB # mean ITDATAPLATFORM group has read only access to all schema in INSIGHTDB catalog
+#       - DATAHUB # mean ITDATAPLATFORM group has read only access to all schema in DATAHUB catalog
+#     entitlements:
+
+#   - names: FFFOF
+#     uc_permissions:
+#       - GOLD.READER_BOACC # mean FFFOF group has read ONLY access to BOACC schema in GOLD catalog
+#       - GOLD.READER_BOFC # all the reader will be defined as exactly what we have in snowflake
+#       - GOLD.READER_FFFOF # if the dot (.) do not works, use underscore (_)
+#       - MDMDB.READER_DBO # reader here mean: usage on catalog, usage on only one schema: the schema name is specified after the <<READER_>>
+#       - SILVER.READER_BO # and fine-grained privilege on each asset inside the specified schema
+#       - SILVER.READER_DBO
+#     access_control:
+#       dev:
+#         - permission_level: CAN_EDIT
+#           object_type: directories
+#         - permission_level: CAN_ATTACH_TO
+#           object_type: clusters
+#         - permission_level: CAN_MANAGE
+#           object_type: jobs
+#       uat:
+#         - permission_level: CAN_EDIT
+#           object_type: directories
+#         - permission_level: CAN_READ
+#           object_type: clusters
+#         - permission_level: CAN_VIEW
+#           object_type: jobs
+#       prd:
+#         - permission_level: CAN_READ
+#           object_type: directories
+#         - permission_level: CAN_READ
+#           object_type: clusters
+#         - permission_level: CAN_VIEW
+#           object_type: jobs
+#     foreign_catalogs:
+#       # in this example Foreign catalo is created on three db: Yoozdb, insightdb and datahub
+#       - YOOZDB.FOF # mean FFFOF group has read only access to FOF schema inside YOOZDB catalog
+#       - INSIGHTDB.DBO # mean FFFOF group has read only access to DBO schema in INSIGHTDB catalog
+#       - DATAHUB.FDA # mean FFFOF group has read only access to FDA schema in DATAHUB catalog
+#       - DATAHUB.FDA.BO # mean FFFOF group has read only access to BO table or view in FDA schema in DATAHUB catalog
+#     entitlements:
+
+# databricks_account_groups

@@ -17,6 +17,11 @@ variable "aad_client_id" {
   description = "The client id of the Service Principal for interacting with Azure resources"
 }
 
+variable "aad_client_secret" {
+  type        = string
+  description = "The client secret of the Service Principal for interacting with Azure resources"
+}
+
 # --------------------
 # Databricks Variables
 # --------------------

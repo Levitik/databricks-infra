@@ -1,3 +1,19 @@
-# output "catalogs" {
-#   value = module.databricks-infra.catalogs
+# output "schema_level_permissions" {
+#   value = module.databricks-infra.schema_level_permissions
+# }
+
+# output "schema_level_permissions_prerequisites" {
+#   value = module.databricks-infra.schema_level_permissions_prerequisites
+# }
+
+# output "f_schema_level_permissions_prerequisites" {
+#   value = module.databricks-infra.f_schema_level_permissions_prerequisites
+# }
+
+# output "f_schema_liste" {
+#   value = module.databricks-infra.f_schema_liste
+# }
+
+# output "test" {
+#   value = module.databricks-infra.test
 # }

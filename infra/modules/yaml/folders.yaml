@@ -1,0 +1,50 @@
+workspace_folders:
+  - names: Shared
+    # by default all users have CAN_MANAGE access on sahre folder, so I modidied the permission to CAN_RUN for all users,
+    sub_folders:
+      - names: Libraries
+        users: CAN_RUN
+      - names: Templates
+        users: CAN_RUN
+      - names: Docs
+        users: CAN_RUN
+      - names: Config
+        users: CAN_RUN
+  - names: Teams
+    sub_folders:
+      - names: Dataplatform
+        admin: CAN_MANAGE
+        Dataplatform: CAN_RUN
+        sub_folders:
+          - names: Bronze
+            # Dataplatform: CAN_RUN
+          - names: Silver
+            # Dataplatform: CAN_RUN
+          - names: Gold
+            # Dataplatform: CAN_RUN
+          - names: Yoozdb
+            # Dataplatform: CAN_RUN
+          - names: Test
+            # Dataplatform: CAN_RUN
+            Engineers: CAN_EDIT
+            Operators: CAN_EDIT
+      - names: admin
+        admin: CAN_RUN
+      - names: Analysts
+        Analysts: CAN_RUN
+        Dataplatform: CAN_EDIT
+      - names: Engineers
+        Engineers: CAN_RUN
+      - names: Operators
+        Operators: CAN_RUN
+      - names: Searchers
+        Searchers: CAN_RUN
+        Dataplatform: CAN_EDIT
+        Operators: CAN_EDIT
+      - names: Datascientists
+        Datascientists: CAN_RUN
+  - names: Archi
+    sub_folders:
+      - names: /2023_Q1
+      - names: /2023_Q2
+      - names: OldProjects

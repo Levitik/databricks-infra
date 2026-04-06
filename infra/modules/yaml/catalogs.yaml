@@ -1,0 +1,1577 @@
+standard_catalogs:
+  bronze:
+    naming_convention: "{env}_bronze"
+    description: "Raw data ingestion layer - landing zone for all source data"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        all:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+    schemas:
+      ingestion:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            all: ["USE SCHEMA", "SELECT"]
+      raw_files:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+      staging:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      archive:
+        grants:
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+  silver:
+    naming_convention: "{env}_silver"
+    description: "Cleaned and validated data - business logic applied"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+
+    schemas:
+      curated:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      validated:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      enriched:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+  gold:
+    naming_convention: "{env}_gold"
+    description: "Analytics-ready data - aggregated and optimized for consumption"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+
+    schemas:
+      analytics:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      reporting:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+      ml_features:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+  admindb:
+    naming_convention: "{env}_admindb"
+    description: "Administrative data catalog"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+
+    schemas:
+      monitoring:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      billing:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+      audit_logs:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+  itdb:
+    naming_convention: "{env}_itdb"
+    description: "Information technology database catalog"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+    schemas:
+      financial_reports:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      regulatory:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      compliance:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+  crmdb:
+    naming_convention: "{env}_crmdb"
+    description: "Customer relationship management data catalog"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+
+    schemas:
+      customers:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      interactions:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      campaigns:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      sales:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+  mdmdb:
+    naming_convention: "{env}_mdmdb"
+    description: "Master data management data catalog"
+    grants:
+      Dataplatform:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        dev:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        uat:
+          [
+            "USE CATALOG",
+            "USE SCHEMA",
+            "SELECT",
+            "CREATE TABLE",
+            "CREATE MATERIALIZED VIEW",
+            "CREATE VOLUME",
+            "MODIFY",
+          ]
+        prd: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+
+    schemas:
+      transactions:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      funds:
+        grants:
+          Engineers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+      campaigns:
+        grants:
+          Operators:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            dev:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            uat:
+              [
+                "USE SCHEMA",
+                "CREATE TABLE",
+                "CREATE MATERIALIZED VIEW",
+                "CREATE VOLUME",
+                "SELECT",
+              ]
+            prd: ["USE SCHEMA", "SELECT"]
+
+foreign_catalogs:
+  efront:
+    naming_convention: "{env}_efront"
+    description: "Master data management data catalog"
+    grants:
+      Dataplatform:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+    schemas:
+      schema_1:
+        grants:
+          Engineers:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_2:
+        grants:
+          Operators:
+            all: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_3:
+        grants:
+          Analysts:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+
+  foffof:
+    naming_convention: "{env}_foffof"
+    description: "Master data management data catalog"
+    grants:
+      Dataplatform:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+    schemas:
+      schema_1:
+        grants:
+          Engineers:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_2:
+        grants:
+          Operators:
+            all: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_3:
+        grants:
+          Analysts:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+  foinfra:
+    naming_convention: "{env}_foinfra"
+    description: "Master data management data catalog"
+    grants:
+      Dataplatform:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+    schemas:
+      schema_1:
+        grants:
+          Engineers:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_2:
+        grants:
+          Operators:
+            all: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_3:
+        grants:
+          Analysts:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+  icredit:
+    naming_convention: "{env}_icredit"
+    description: "Master data management data catalog"
+    grants:
+      Dataplatform:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+    schemas:
+      schema_1:
+        grants:
+          Engineers:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_2:
+        grants:
+          Operators:
+            all: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_3:
+        grants:
+          Analysts:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+  kate:
+    naming_convention: "{env}_kate"
+    description: "Master data management data catalog"
+    grants:
+      Dataplatform:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+      admin:
+        all: ["USE CATALOG", "USE SCHEMA", "SELECT"]
+    schemas:
+      schema_1:
+        grants:
+          Engineers:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_2:
+        grants:
+          Operators:
+            all: ["USE SCHEMA", "SELECT"]
+          Searchers:
+            all: ["USE SCHEMA", "SELECT"]
+      schema_3:
+        grants:
+          Analysts:
+            all: ["USE SCHEMA", "SELECT"]
+          Datascientists:
+            all: ["USE SCHEMA", "SELECT"]

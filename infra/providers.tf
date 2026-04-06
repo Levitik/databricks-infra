@@ -10,6 +10,10 @@ terraform {
       source  = "databricks/databricks"
       version = "~> 1.38"
     }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "~> 3.5.0"
+    }
   }
   backend "azurerm" {
     use_oidc             = true # Can also be set via `ARM_USE_OIDC` environment variable.
@@ -38,14 +42,24 @@ provider "azurerm" {
 provider "databricks" {
   host          = var.databricks_workspace_url
   azure_use_msi = true
+  # azure_tenant_id     = var.aad_tenant_id
+  # azure_client_id     = var.aad_client_id
+  # azure_client_secret = var.aad_client_secret
   #auth_type     = "azure_cli"
 }
 
 # Define the Databricks Account provider
 provider "databricks" {
-  alias         = "account"
-  host          = "https://accounts.azuredatabricks.net"
-  account_id    = var.databricks_account_id
-  azure_use_msi = true
-  #auth_type     = "azure_cli"
+  alias               = "account"
+  host                = "https://accounts.azuredatabricks.net"
+  account_id          = var.databricks_account_id
+  azure_tenant_id     = var.aad_tenant_id
+  azure_client_id     = var.aad_client_id
+  azure_client_secret = var.aad_client_secret
+}
+
+provider "azuread" {
+  #use_msi   = true
+  client_id = var.aad_client_id
+  tenant_id = var.aad_tenant_id
 }

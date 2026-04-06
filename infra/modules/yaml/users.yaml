@@ -1,0 +1,57 @@
+entraid_groups:
+  - names: admin
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_MANAGE
+      uat:
+        - DEFAULT_COMPUTE: CAN_MANAGE
+      prd:
+        - DEFAULT_COMPUTE: CAN_MANAGE
+  - names: Analysts
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_USE
+      uat:
+        - DEFAULT_COMPUTE: CAN_USE
+  - names: Engineers
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_MONITOR
+      uat:
+        - DEFAULT_COMPUTE: CAN_MONITOR
+  - names: Operators
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_USE
+      uat:
+        - DEFAULT_COMPUTE: CAN_USE
+  - names: Searchers
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_USE
+      uat:
+        - DEFAULT_COMPUTE: CAN_USE
+  - names: Datascientists
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_USE
+      uat:
+        - DEFAULT_COMPUTE: CAN_USE
+  - names: Dataplatform
+    compute_acl:
+      dev:
+        - DEFAULT_COMPUTE: CAN_MONITOR
+      uat:
+        - DEFAULT_COMPUTE: CAN_MONITOR
+      prd:
+        - DEFAULT_COMPUTE: CAN_USE
+
+entraid_spn:
+  - names: App-Databricks-frc-dev
+  - names: App-Databricks-frc-uat
+  - names: App-Databricks-frc-prd
+
+databricks_account_groups:
+  - names: account_admin
+  - names: metastore_admin
+  - names: workspace_admin

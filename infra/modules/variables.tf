@@ -31,3 +31,12 @@ variable "databricks_access_connector_name" {
   type        = string
   description = "The name of the Databricks access connector"
 }
+
+#######################################################################
+###############          Databricks Variables           ###############
+#######################################################################
+
+variable "databricks_workspace_id" {
+  type        = string
+  description = "The ID of the Databricks Workspace for this deployment"
+}

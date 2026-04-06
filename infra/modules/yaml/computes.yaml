@@ -1,0 +1,29 @@
+computes:
+  - names: DEFAULT
+    config:
+      cluster_size: 2X-Small
+      max_num_clusters: 1
+      min_num_clusters: 1
+      auto_stop_mins: 5
+      enable_serverless_compute: true
+    permissions:
+      admin:
+        all: CAN_MANAGE
+      Dataplatform:
+        dev: CAN_MANAGE
+        uat: CAN_MANAGE
+        prd: CAN_USE
+      Engineers:
+        dev: CAN_MANAGE
+        uat: CAN_MONITOR
+        prd: CAN_USE
+      Operators:
+        dev: CAN_MANAGE
+        uat: CAN_MANAGE
+        prd: CAN_USE
+      Searchers:
+        all: CAN_USE
+      Datascientists:
+        all: CAN_USE
+      Analysts:
+        all: CAN_USE
