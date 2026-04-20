@@ -1,10 +1,27 @@
-# output "schema_level_permissions" {
-#   value = module.databricks-infra.schema_level_permissions
+# output "account_groups" {
+#   value = module.databricks-infra.account_groups
 # }
 
-# output "schema_level_permissions_prerequisites" {
-#   value = module.databricks-infra.schema_level_permissions_prerequisites
+# output "account_groups_name" {
+#   value = module.databricks-infra.account_groups_name
 # }
+
+# output "account_groups_members" {
+#   value = module.databricks-infra.account_groups_members
+# }
+
+# output "account_groups_admin" {
+#   value = module.databricks-infra.account_groups_admin
+# }
+
+# output "account_groups_members" {
+#   value = module.databricks-infra.account_groups_members
+# }
+
+# output "account_groups_admin" {
+#   value = module.databricks-infra.account_groups_admin
+# }
+
 
 # output "f_schema_level_permissions_prerequisites" {
 #   value = module.databricks-infra.f_schema_level_permissions_prerequisites

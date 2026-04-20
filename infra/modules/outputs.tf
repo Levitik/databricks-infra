@@ -30,6 +30,30 @@ output "f_schema_level_permissions_prerequisites" {
   value = local.f_schema_level_permissions_prerequisites
 }
 
-# output "f_schema_liste" {
-#   value = data.databricks_schemas.foreign
+# output "entraid_groups" {
+#   value = local.entraid_groups_name
+# }
+
+output "account_groups" {
+  value = local.account_groups
+}
+
+output "account_groups_name" {
+  value = local.account_groups_name
+}
+
+output "account_groups_members" {
+  value = local.account_groups_members
+}
+
+output "account_groups_admin" {
+  value = local.account_groups_admin
+}
+
+# output "account_groups_members" {
+#   value = local.account_groups_members
+# }
+
+# output "account_groups_admin" {
+#   value = local.account_groups_admin
 # }

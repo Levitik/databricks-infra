@@ -152,14 +152,24 @@ locals {
   ########################################################################
   ######################        Databricks Users      ####################   
   ########################################################################
-  users_yaml                = yamldecode(file("${path.module}/yaml/users.yaml"))
-  entraid_groups            = local.users_yaml.entraid_groups
-  databricks_account_groups = local.users_yaml.databricks_account_groups
+  users_yaml     = yamldecode(file("${path.module}/yaml/users.yaml"))
+  entraid_groups = local.users_yaml.entraid_groups
+  account_groups = local.users_yaml.account_groups
   entraid_groups_name = [
     for group in local.entraid_groups : group.names
   ]
-  databricks_account_groups_name = [
-    for group in local.databricks_account_groups : group.names
+  account_groups_name = [
+    for group in local.account_groups : group.names
+  ]
+
+  account_groups_members = flatten([
+    for group in local.account_groups : [
+      for member in try(group.members, []) : join("|", [group.names, member])
+    ]
+  ])
+
+  account_groups_admin = [
+    for group in local.account_groups : group.names if try(group.role, "") == "Admin"
   ]
 
   ########################################################################

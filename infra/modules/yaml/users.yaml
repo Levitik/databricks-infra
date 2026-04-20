@@ -1,57 +1,55 @@
 entraid_groups:
-  - names: admin
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_MANAGE
-      uat:
-        - DEFAULT_COMPUTE: CAN_MANAGE
-      prd:
-        - DEFAULT_COMPUTE: CAN_MANAGE
+  - names: Grp-Entraid-Glb-Dataplatfform-Analysts-User
+  - names: Grp-Entraid-Glb-Dataplatfform-Engineers-User
+  - names: Grp-Entraid-Glb-Dataplatfform-Operators-User
+  - names: Grp-Entraid-Glb-Dataplatfform-Searchers-User
+  - names: Grp-Entraid-Glb-Dataplatfform-Datascientists-User
+  - names: Grp-Entraid-Glb-Dataplatfform-Dataplatform-User
+  - names: Grp-Entraid-Glb-Dataplatfform-Admin-User
+
+account_groups:
   - names: Analysts
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_USE
-      uat:
-        - DEFAULT_COMPUTE: CAN_USE
+    role: User
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Analysts-User
+      - Grp-Entraid-Glb-Dataplatfform-Dataplatform-User
+
   - names: Engineers
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_MONITOR
-      uat:
-        - DEFAULT_COMPUTE: CAN_MONITOR
+    role: User
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Engineers-User
+      - Grp-Entraid-Glb-Dataplatfform-Searchers-User
+
   - names: Operators
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_USE
-      uat:
-        - DEFAULT_COMPUTE: CAN_USE
+    role: User
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Operators-User
+
   - names: Searchers
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_USE
-      uat:
-        - DEFAULT_COMPUTE: CAN_USE
+    role: User
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Searchers-User
+
   - names: Datascientists
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_USE
-      uat:
-        - DEFAULT_COMPUTE: CAN_USE
+    role: User
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Datascientists-User
+
   - names: Dataplatform
-    compute_acl:
-      dev:
-        - DEFAULT_COMPUTE: CAN_MONITOR
-      uat:
-        - DEFAULT_COMPUTE: CAN_MONITOR
-      prd:
-        - DEFAULT_COMPUTE: CAN_USE
+    role: User
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Dataplatform-User
+
+  - names: Admin
+    role: Admin
+    members:
+      - Grp-Entraid-Glb-Dataplatfform-Admin-User
+
+  - names: AccountAdmin
+  - names: MetastoreAdmin
+  - names: WorkspaceAdmin
 
 entraid_spn:
   - names: App-Databricks-frc-dev
   - names: App-Databricks-frc-uat
   - names: App-Databricks-frc-prd
-
-databricks_account_groups:
-  - names: account_admin
-  - names: metastore_admin
-  - names: workspace_admin
